@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <HasteDir Condition="'$(OS)' == 'Windows_NT'">C:\Program Files (x86)\Steam\steamapps\common\Haste\Haste_Data\Managed</HasteDir>
+				<HasteDir Condition="'$(OS)' != 'Windows_NT'">$(HOME)/.steam/steam/steamapps/common/Haste/Haste_Data/Managed</HasteDir>
+        <HasteDlls Condition=" '$(HasteDlls)' == '' ">$(HasteDir)/*.dll</HasteDlls>
+
+        <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+			<Reference Include="$(HasteDlls)" Private="false"/>
+    </ItemGroup>
+
+</Project>
